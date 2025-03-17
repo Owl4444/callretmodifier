@@ -1,6 +1,6 @@
 # Call Ret Modifier Deobfuscator
 
-Using Binary Ninja, it is possible to deobfuscate this type of obfuscation. It seems to work really well though I can think of edge cases which should be addressed when it arises. Note there is a jump to address which is the target for two opposing jump statements. This is a part of Conrol Flow Obfuscation found ina real world malware. The artivle from [Mandiant](https://cloud.google.com/blog/topics/threat-intelligence/scatterbrain-unmasking-poisonplug-obfuscator) covers this as well under `Opaque Predicates`.
+Using Binary Ninja, it is possible to deobfuscate this type of obfuscation. It seems to work really well though I can think of edge cases which should be addressed when it arises. Note there is a jump to address which is the target for two opposing jump statements. This is a part of Conrol Flow Obfuscation found ina real world malware. The article from [Mandiant](https://cloud.google.com/blog/topics/threat-intelligence/scatterbrain-unmasking-poisonplug-obfuscator) also covered this as well under `Opaque Predicates`.
 
 ```asm
 180012d12  50                 push    rax
