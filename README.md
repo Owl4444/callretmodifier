@@ -16,7 +16,7 @@ Using Binary Ninja, it is possible to deobfuscate this type of obfuscation. It s
 
 which then changes to something like the following:
 
-```
+```asm
 180012d12  push    rax {__saved_rax}
 180012d13  jmp     0x18001291c
 
