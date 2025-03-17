@@ -14,6 +14,25 @@ Using Binary Ninja, it is possible to deobfuscate this type of obfuscation. It s
 180012d32  c3                 retn
 ```
 
+which then changes to something like the following:
+
+```
+180012d12  push    rax {__saved_rax}
+180012d13  jmp     0x18001291c
+
+18001291c  mov     rax, qword [rsp+0x8 {__return_addr}]
+180012921  jmp     0x180009354
+
+180009354  movsxd  rax, dword [rax]
+180009357  jmp     0x180008710
+
+180008710  pushfq   {var_10}
+180008711  jmp     0x180012b68
+
+...
+...
+```
+
 ## The Idea
 
 The idea here is to go through each block adn search for conditional jumps and just focusing on those with rel32 as jump (offsets) rather than things like ja [rbx]. These kind we ignore. Then we create another map that groups all the targets. then for each target, check if there are opposing jump (per function and not globally). If have, then we want to patch. Continue on for the rest
